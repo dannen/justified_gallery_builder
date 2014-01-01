@@ -3,6 +3,7 @@ unlink "index.html";
 
 $table = 0;
 $pwd = `pwd`;
+$thumbdir = "resized";
 $targeturl = "http://fnord.org/justified_gallery_builder";
 
 chomp $pwd;
@@ -59,7 +60,7 @@ EOF
 #print INDEX "<body bgcolor=#000000 text=white link=white vlink=red alink=red>\n";
 print INDEX "<body>\n\n";
 
-opendir (THUMBDIR, $pwd);
+opendir (THUMBDIR,"$pwd/$thumbdir");
 
 foreach $thumbnail ( sort readdir THUMBDIR) {
         if ($thumbnail =~ /_t.jpg/) {
@@ -82,8 +83,8 @@ foreach $thumbnail (sort keys %thumbnames) {
         #}
 
                 $table++;
-                print INDEX "\t<a href=\"$b_picname\" title=\"$table\" rel=\"fnord\">\n";
-                print INDEX "\t\t<img alt=\"$table\" src=\"$thumbnail\" />\n";
+                print INDEX "\t<a href=\"$thumbdir/$b_picname\" title=\"$table\" rel=\"fnord\">\n";
+                print INDEX "\t\t<img alt=\"$table\" src=\"$thumbdir/$thumbnail\" />\n";
                 print INDEX "\t</a>\n";
 
 }
