@@ -33,6 +33,7 @@ Answer:
 
 login to your favorite unix host which already has apache configured and running.
 
+<pre>
 mkdir test
 cd test
 
@@ -55,6 +56,7 @@ cd images
 ../all_mtime/all_mtime.pl
 ../justified_resize/justified_resize.pl
 ../justified_gallery_builder/justified_gallery_builder.pl
+</pre>
 
 open a web browser and point it at http://yourfavoriteunixhost/pathto/images
 
