@@ -39,10 +39,10 @@ cd test
 
 git clone https://github.com/miromannino/Justified-Gallery.git
 
-mv Justified-Gallery/examples/jquery .
-mv Justified-Gallery/examples/jquery-colorbox .
-mv Justified-Gallery/js .
-mv Justified-Gallery/css .
+cp -pr Justified-Gallery/examples/jquery .
+cp -pr Justified-Gallery/examples/jquery-colorbox .
+cp -pr Justified-Gallery/js .
+cp -pr Justified-Gallery/css .
 
 git clone https://github.com/dannen/all_mtime.git
 git clone https://github.com/dannen/justified_resize.git
