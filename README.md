@@ -62,7 +62,7 @@ open a web browser and point it at http://yourfavoriteunixhost/pathto/images
 
 It should look like the results of example.html here: 
 
-	<a href="http://fnord.org/justified_gallery_builder/example/after/example.html">example</a>
+http://fnord.org/justified_gallery_builder/example/after/example.html
 
 note:
  * You will consume a lot of diskspace with these tools as they make several copies of your original images.
