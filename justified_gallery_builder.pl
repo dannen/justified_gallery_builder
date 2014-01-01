@@ -6,6 +6,7 @@ $pwd = `pwd`;
 $thumbdir = "resized";
 $targeturl = "http://fnord.org/justified_gallery_builder";
 
+
 chomp $pwd;
 print "Running in: $pwd\n";
 
@@ -63,7 +64,7 @@ print INDEX "<body>\n\n";
 opendir (THUMBDIR,"$pwd/$thumbdir");
 
 foreach $thumbnail ( sort readdir THUMBDIR) {
-        if ($thumbnail =~ /_t.jpg/) {
+        if ($thumbnail =~ /_t....$/) {
                 $thumbnames{$thumbnail}++;
         }
 }
@@ -72,9 +73,17 @@ close THUMBDIR;
 print INDEX "<div id=\"$id\">\n";
 
 foreach $thumbnail (sort keys %thumbnames) {
-        ($picname,$null) = split (/_t.jpg/,$thumbnail);
+	if ( $thumbnail =~ /gif/) {
+		$suffixtype = "gif";
+	} elsif ( $thumbnail =~ /png/ ) {
+		$suffixtype = "png";
+	} elsif ( $thumbnail =~ /jpg/ ) {
+		$suffixtype = "jpg";
+	}
+        ($picname,$null) = split (/_t.$suffixtype/,$thumbnail);
+
         ($filename,$suffix) = split (/\./,$picname);
-        $b_picname = join "",$picname,"_b.jpg";
+        $b_picname = join "",$picname,"_b.$suffixtype";
         #print "$b_picname\n";
 
         #if ($table == 7) {
@@ -119,4 +128,4 @@ print INDEX "</html>\n";
 close INDEX;
 
 system ("chmod 755 .");
-system ("chmod 644 *.jpg");
+system ("chmod 644 *.???");
